@@ -1,3 +1,4 @@
+// by alex
 #define $$_$ goto
               #define __$$$ int
     #define $$$_ main
