@@ -10,11 +10,10 @@ public class TransitionTo : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if (target == null) {
-			target = GetComponent<GameObject>();
+			target = GetComponent<GameObject>(); //Gets the sphere that you're transitioning to
 		}
-		transitioning = false;
-		//target = GetComponent<GameObject>();
-		fader = GameObject.Find("Fader").GetComponent<Animator>();
+		transitioning = false; //This keeps the transitionTo from being run while already transitioning
+		fader = GameObject.Find("Fader").GetComponent<Animator>(); //The animator of the black rectangle that makes the fade
 	}
 
 	// Update is called once per frame
@@ -32,7 +31,7 @@ public class TransitionTo : MonoBehaviour {
 		fader.SetTrigger("Fader Out");
 	}
 	void createNewSphere(){
-		GameObject nextPhotoShphere = (GameObject)Instantiate(target);
+		GameObject nextPhotoShphere = (GameObject)Instantiate(target); //This var isn't used but not declaring it makes it not work
 	}
 
 	void destroySphere(){
