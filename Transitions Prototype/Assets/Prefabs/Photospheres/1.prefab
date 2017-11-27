@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 114982257306018630}
   - component: {fileID: 114140292425570300}
   - component: {fileID: 114118815773912062}
+  - component: {fileID: 114708098540228214}
   m_Layer: 0
   m_Name: TransitionButton2
   m_TagString: Untagged
@@ -170,6 +171,7 @@ GameObject:
   - component: {fileID: 114822696486838618}
   - component: {fileID: 114517916754783024}
   - component: {fileID: 114859662533004028}
+  - component: {fileID: 114986556944638030}
   m_Layer: 0
   m_Name: TransitionButton4
   m_TagString: Untagged
@@ -674,8 +676,7 @@ AudioSource:
   m_GameObject: {fileID: 1690716338578534}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300001, guid: ca71259be6348485abbe393157796cb8,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1d11d0ee010e446569ed60f1d3a19e6e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -840,6 +841,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1833786457505888, guid: 62f50247f699d4b638da34ea23f48df0, type: 2}
+--- !u!114 &114708098540228214
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1347123572605984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f6c95ba5dce4864830ba5497094c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSpeed: 0.6
 --- !u!114 &114822696486838618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -858,6 +871,17 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 114517916754783024}
           m_MethodName: doTransition
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 114986556944638030}
+          m_MethodName: Fade
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -919,9 +943,32 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 114708098540228214}
+          m_MethodName: Fade
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &114986556944638030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1993140644058644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f6c95ba5dce4864830ba5497094c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSpeed: 0.6
 --- !u!135 &135250948094672132
 SphereCollider:
   m_ObjectHideFlags: 1

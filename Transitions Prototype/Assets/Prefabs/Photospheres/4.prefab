@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114917711558309754}
   - component: {fileID: 114129241354321822}
   - component: {fileID: 114002461819663836}
+  - component: {fileID: 114017363601047122}
   m_Layer: 0
   m_Name: TransitionButton3
   m_TagString: Untagged
@@ -82,6 +83,7 @@ GameObject:
   - component: {fileID: 114270793093176452}
   - component: {fileID: 114797105683992760}
   - component: {fileID: 114746083906110600}
+  - component: {fileID: 114404893240109240}
   m_Layer: 0
   m_Name: TransitionButton1
   m_TagString: Untagged
@@ -774,6 +776,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68dade14bbc094380a151ecb81d935ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114017363601047122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1010615362342074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f6c95ba5dce4864830ba5497094c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSpeed: 0.6
 --- !u!114 &114129241354321822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -804,6 +818,17 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 114797105683992760}
           m_MethodName: doTransition
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 114404893240109240}
+          m_MethodName: Fade
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -857,6 +882,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68dade14bbc094380a151ecb81d935ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114404893240109240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1235538700987834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f6c95ba5dce4864830ba5497094c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSpeed: 0.6
 --- !u!114 &114746083906110600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -898,6 +935,17 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 114129241354321822}
           m_MethodName: doTransition
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 114017363601047122}
+          m_MethodName: Fade
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

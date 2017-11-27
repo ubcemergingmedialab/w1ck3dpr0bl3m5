@@ -62,6 +62,7 @@ GameObject:
   - component: {fileID: 114740037679784016}
   - component: {fileID: 114486631193653144}
   - component: {fileID: 114723207865829116}
+  - component: {fileID: 114298139136094716}
   m_Layer: 0
   m_Name: TransitionButton3
   m_TagString: Untagged
@@ -120,6 +121,7 @@ GameObject:
   - component: {fileID: 114548983554005974}
   - component: {fileID: 114053965462809482}
   - component: {fileID: 114587995161724294}
+  - component: {fileID: 114415224969374730}
   m_Layer: 0
   m_Name: TransitionButton1
   m_TagString: Untagged
@@ -775,6 +777,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1874643388864652, guid: d9ecf4001e1444494bfd0227a15365d0, type: 2}
+--- !u!114 &114298139136094716
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1116099000552414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f6c95ba5dce4864830ba5497094c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSpeed: 0.6
+--- !u!114 &114415224969374730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1268564737604950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f6c95ba5dce4864830ba5497094c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSpeed: 0.6
 --- !u!114 &114452948746456388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -844,6 +870,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 114415224969374730}
+          m_MethodName: Fade
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
@@ -898,6 +935,17 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 114486631193653144}
           m_MethodName: doTransition
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 114298139136094716}
+          m_MethodName: Fade
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

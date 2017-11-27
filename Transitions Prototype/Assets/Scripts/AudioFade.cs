@@ -35,6 +35,9 @@ public class AudioFade : MonoBehaviour {
 				Debug.Log ("Audio Switched");
 			}
 		}
+	}
 
+	public void Fade() {
+		fade = true;
 	}
 }

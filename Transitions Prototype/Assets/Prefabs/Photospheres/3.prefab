@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 114730325640310050}
   - component: {fileID: 114384049825810122}
   - component: {fileID: 114041833346213352}
+  - component: {fileID: 114974502593282044}
   m_Layer: 0
   m_Name: TransitionButton2
   m_TagString: Untagged
@@ -81,6 +82,7 @@ GameObject:
   - component: {fileID: 114493359778156242}
   - component: {fileID: 114159436903823280}
   - component: {fileID: 114600282669677912}
+  - component: {fileID: 114893131809812334}
   m_Layer: 0
   m_Name: TransitionButton4
   m_TagString: Untagged
@@ -825,6 +827,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 114893131809812334}
+          m_MethodName: Fade
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
@@ -888,9 +901,32 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 114974502593282044}
+          m_MethodName: Fade
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &114893131809812334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1380135548841436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f6c95ba5dce4864830ba5497094c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSpeed: 0.6
 --- !u!114 &114936829566780228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -921,6 +957,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &114974502593282044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1111409758729320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f6c95ba5dce4864830ba5497094c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSpeed: 0.6
 --- !u!135 &135326229916280304
 SphereCollider:
   m_ObjectHideFlags: 1
