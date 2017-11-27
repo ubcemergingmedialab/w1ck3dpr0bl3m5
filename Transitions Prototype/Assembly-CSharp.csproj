@@ -136,7 +136,11 @@
      <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrMathHelpers.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrUIHelpers.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
+<<<<<<< HEAD
      <Compile Include="Assets\Scripts\AudioFade.cs" />
+=======
+     <Compile Include="Assets\Scripts\ClickedOn.cs" />
+>>>>>>> 0aaf789fa9e16f37218d397f862aaed404bb3349
      <Compile Include="Assets\Scripts\TransitionTo.cs" />
      <None Include="Assets\GoogleVR\Shaders\GvrUIOverlayFont.shader" />
      <None Include="Assets\GoogleVR\Plugins\Android\proguard-gvr.txt" />
