@@ -367,6 +367,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1874643388864652, guid: d9ecf4001e1444494bfd0227a15365d0, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9ecf4001e1444494bfd0227a15365d0, type: 2}
   m_IsPrefabParent: 0
@@ -587,6 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f6c95ba5dce4864830ba5497094c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSpeed: 0.6
 --- !u!4 &1336789304
 Transform:
   m_ObjectHideFlags: 0
