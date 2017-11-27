@@ -26,13 +26,13 @@ public class AudioFade : MonoBehaviour {
 		foreach (AudioSource audio in a) {
 			if (audio.volume > 0.01f) {
 				audio.volume -= audioSpeed * Time.deltaTime;
-				Debug.Log (audio.volume);
+				//Debug.Log (audio.volume);
 			} else {
 				// Not the most efficient way atm.
 				audio.Stop ();
 				fade = false;
 				audio.volume = 1;
-				Debug.Log ("Audio Switched");
+				//Debug.Log ("Audio Switched");
 			}
 		}
 

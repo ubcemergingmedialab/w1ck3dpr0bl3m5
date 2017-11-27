@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TransitionTo : MonoBehaviour {
 	public GameObject target;
+    public GameObject hide;
 	bool transitioning;
 	Animator fader;
 
@@ -11,10 +12,11 @@ public class TransitionTo : MonoBehaviour {
 	void Start () {
 		if (target == null) {
 			target = GetComponent<GameObject>(); //Gets the sphere that you're transitioning to
-		}
+        }
 		transitioning = false; //This keeps the transitionTo from being run while already transitioning
 		fader = GameObject.Find("Fader").GetComponent<Animator>(); //The animator of the black rectangle that makes the fade
-	}
+        hide = GameObject.Find("Glass"); //Gets the glass, which is assumed to be the last object in the hierarchy
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -23,7 +25,8 @@ public class TransitionTo : MonoBehaviour {
 			fader.SetTrigger("Fader In");
 			Invoke("createNewSphere", 2);
 			Invoke("destroySphere", 2);
-			Invoke("fadeOut", 2);
+            hide.SetActive(true);
+            Invoke("fadeOut", 2);
 		}
 	}
 
@@ -31,7 +34,7 @@ public class TransitionTo : MonoBehaviour {
 		fader.SetTrigger("Fader Out");
 	}
 	void createNewSphere(){
-		GameObject nextPhotoShphere = (GameObject)Instantiate(target); //This var isn't used but not declaring it makes it not work
+		GameObject nextPhotoSphere = (GameObject)Instantiate(target); //This var isn't used but not declaring it makes it not work
 	}
 
 	void destroySphere(){
