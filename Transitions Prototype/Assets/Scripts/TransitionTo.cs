@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,15 +18,15 @@ public class TransitionTo : MonoBehaviour {
         hide = GameObject.Find("Glass"); //Gets the glass, which is assumed to be the last object in the hierarchy
     }
 
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetKeyDown ("space") && !transitioning){
+
+	public void doTransition(){
+		if (!transitioning){
 			transitioning = true;
 			fader.SetTrigger("Fader In");
 			Invoke("createNewSphere", 2);
 			Invoke("destroySphere", 2);
-            hide.SetActive(true);
-            Invoke("fadeOut", 2);
+			Invoke("fadeOut", 2);
+			hide.SetActive(true);
 		}
 	}
 

@@ -156,6 +156,8 @@
      <Compile Include="Assets\Scripts\AudioFade.cs" />
      <Compile Include="Assets\Scripts\ClickedOn.cs" />
      <Compile Include="Assets\Scripts\Fanciness.cs" />
+     <Compile Include="Assets\Scripts\LookAtCamera.cs" />
+     <Compile Include="Assets\Scripts\OldTransitionTo.cs" />
      <Compile Include="Assets\Scripts\TransitionTo.cs" />
      <None Include="Assets\_MK\MKGlassFree\Shader\MKGlassCommonFree.shader" />
      <None Include="Assets\GoogleVR\Shaders\GvrUIOverlayFont.shader" />
