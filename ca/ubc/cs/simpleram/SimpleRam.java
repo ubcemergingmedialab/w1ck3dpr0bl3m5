@@ -1,0 +1,527 @@
+package ca.ubc.cs.simpleram;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.IOException;
+import java.util.WeakHashMap;
+
+import com.cburch.hex.HexModel;
+import com.cburch.hex.HexModelListener;
+import com.cburch.logisim.circuit.CircuitState;
+import com.cburch.logisim.data.Attribute;
+import com.cburch.logisim.data.AttributeEvent;
+import com.cburch.logisim.data.AttributeListener;
+import com.cburch.logisim.data.AttributeSet;
+import com.cburch.logisim.data.AttributeSets;
+import com.cburch.logisim.data.Attributes;
+import com.cburch.logisim.data.BitWidth;
+import com.cburch.logisim.data.Bounds;
+import com.cburch.logisim.data.Direction;
+import com.cburch.logisim.data.Location;
+import com.cburch.logisim.data.Value;
+import com.cburch.logisim.gui.hex.HexFile;
+import com.cburch.logisim.gui.hex.HexFrame;
+import com.cburch.logisim.instance.Instance;
+import com.cburch.logisim.instance.InstanceFactory;
+import com.cburch.logisim.instance.InstanceLogger;
+import com.cburch.logisim.instance.InstancePainter;
+import com.cburch.logisim.instance.InstanceState;
+import com.cburch.logisim.instance.Port;
+import com.cburch.logisim.instance.StdAttr;
+import com.cburch.logisim.proj.Project;
+import com.cburch.logisim.tools.MenuExtender;
+import com.cburch.logisim.tools.key.BitWidthConfigurator;
+import com.cburch.logisim.tools.key.JoinedConfigurator;
+import com.cburch.logisim.util.GraphicsUtil;
+import com.cburch.logisim.util.StringGetter;
+import com.cburch.logisim.util.StringUtil;
+
+/**
+ * Class for a simple RAM module to be used within the Y86 CPU for CPSC 121. A large part of
+ * the code was borrowed from Carl Burch's Mem.java class.
+ * 
+ * @author patrice
+ */
+public class SimpleRam extends InstanceFactory
+{
+    //
+    // Miscellaneous constants.
+    //
+    private static final int DELAY = 10;
+
+    //
+    // Attributes.
+    //
+    private static final Attribute<BitWidth> ATTR_ADDR = Attributes.forBitWidth("addrWidth", new FixedGetter("Ram address"), 2, 24);
+    private static final Attribute<BitWidth> ATTR_DATA = Attributes.forBitWidth("dataWidth", new FixedGetter("Ram data width"));
+    private static final Attribute<Integer>  ATTR_MAXWORDSFETCHED  = Attributes.forIntegerRange("Max words count", 1, 16);
+
+    private static Attribute<?>[] ATTRIBUTES = {
+	ATTR_ADDR, ATTR_DATA, ATTR_MAXWORDSFETCHED
+    };
+
+    private static Object[] ATTRIBUTE_DEFAULTS = {
+	BitWidth.create(8), BitWidth.create(8), new Integer(1)
+    };
+
+    private static Object[][] logOptions = new Object[9][];
+
+    //
+    // Ports; the number of data ports is computed dynamically based on the maximum # of words
+    // that the user can request.
+    //
+    private static final int PORT_ADDR   = 0;
+    private static final int PORT_CS     = 1;
+    private static final int PORT_CLK    = 2;
+    private static final int PORT_OE     = 3;
+    private static final int PORT_DATA0  = 4;
+
+    private int port_wcount_;
+
+    //
+    // Currently loaded images.
+    //
+    private final WeakHashMap<Instance,File> currentInstanceFiles;
+
+    /**
+     * Nested class used to return a fixed string using the StringGetter interface.
+     */
+    private static class FixedGetter implements StringGetter
+    {
+	private final String value_;
+
+	public FixedGetter(String s)
+	{
+	    value_ = s;
+	}
+
+	@Override
+	public String get()
+	{
+	    return value_;
+	}
+    }
+
+    /**
+     * Construct and initialize new SimpleRAM instance.
+     */
+    public SimpleRam()
+    {
+	super("Simple RAM", new FixedGetter("RAM"));
+	setInstancePoker(ca.ubc.cs.simpleram.MemPoker.class);
+	setInstanceLogger(SimpleRam.Logger.class);
+	currentInstanceFiles = new WeakHashMap<Instance,File>();
+	setKeyConfigurator(JoinedConfigurator.create(new BitWidthConfigurator(ATTR_ADDR, 2, 24, 0), new BitWidthConfigurator(ATTR_DATA)));
+    }
+
+    @Override
+    protected void instanceAttributeChanged(Instance instance, Attribute<?> attr)
+    {
+	super.instanceAttributeChanged(instance, attr);
+	configureNewInstance(instance);
+	instance.recomputeBounds();
+	instance.fireInvalidated();
+    }
+
+    @Override
+    public Bounds getOffsetBounds(AttributeSet attrs)
+    {
+	int halfHeight = Math.max(40, attrs.getValue(ATTR_MAXWORDSFETCHED) * 10);
+	return Bounds.create(-160, -halfHeight, 160, 2 * halfHeight);
+    }
+
+    @Override
+    protected Object getInstanceFeature(Instance instance, Object key) {
+	if (key == MenuExtender.class) return new MemMenu(this, instance);
+	return super.getInstanceFeature(instance, key);
+    }
+
+    File getCurrentImage(Instance instance) {
+	return currentInstanceFiles.get(instance);
+    }
+
+    void setCurrentImage(Instance instance, File value) {
+	currentInstanceFiles.put(instance, value);
+    }
+
+    public void loadImage(InstanceState instanceState, File imageFile)
+	    throws IOException {
+	MemState s = this.getState(instanceState);
+	HexFile.open(s.getContents(), imageFile);
+	this.setCurrentImage(instanceState.getInstance(), imageFile);
+    }
+
+    @Override
+    public void paintInstance(InstancePainter painter)
+    {
+	Graphics g = painter.getGraphics();
+	Bounds bds = painter.getBounds();
+
+	//
+	// Draw boundary.
+	//
+	painter.drawRectangle(bds, "");
+
+	//
+	// Draw contents.
+	//
+	if (painter.getShowState()) {
+	    MemState state = getState(painter);
+	    state.paint(painter.getGraphics(), bds.getX(), bds.getY(), bds.getHeight());
+	} else {
+	    BitWidth addr = painter.getAttributeValue(ATTR_ADDR);
+	    int addrBits = addr.getWidth();
+	    int bytes = 1 << addrBits;
+	    String label;
+
+	    if (addrBits >= 30)
+	    {
+		label = StringUtil.format("%sGB RAM", "" + (bytes >>> 30));
+	    }
+	    else if (addrBits >= 20)
+	    {
+		label = StringUtil.format("%sMB RAM", "" + (bytes >> 20));
+	    }
+	    else if (addrBits >= 10)
+	    {
+		label = StringUtil.format("%sKB RAM", "" + (bytes >> 10));
+	    }
+	    else {
+		label = StringUtil.format("%sB RAM", "" + bytes);
+	    }
+	    GraphicsUtil.drawCenteredText(g, label, bds.getX() + bds.getWidth() / 2, bds.getY() + bds.getHeight() / 2);
+	}
+
+	//
+	// Draw ports.
+	//
+	painter.drawPort(PORT_ADDR,   "A" ,  Direction.EAST );
+	painter.drawPort(PORT_CS,     "sel", Direction.SOUTH);
+	painter.drawClock(PORT_CLK,          Direction.NORTH);
+	painter.drawPort(PORT_OE,     "ld",  Direction.SOUTH);
+
+	int maxWordsFetched = painter.getAttributeValue(ATTR_MAXWORDSFETCHED).intValue();
+	if (maxWordsFetched > 1)
+	{
+	    painter.drawPort(port_wcount_, "wc",  Direction.SOUTH);
+	}
+	for (int i = 0; i < maxWordsFetched; i++)
+	{
+	    painter.drawPort(PORT_DATA0 + i, "D" + i, Direction.WEST);
+	}
+
+	painter.getGraphics().setColor(Color.BLACK);
+    }
+
+    @Override
+    public void propagate(InstanceState state)
+    {
+	RamState myState = (RamState) getState(state);
+	BitWidth dataBits = state.getAttributeValue(ATTR_DATA);
+	int maxWordsFetched = state.getAttributeValue(ATTR_MAXWORDSFETCHED);
+
+	int wordCount = (maxWordsFetched > 1) ? Math.min(maxWordsFetched, state.getPort(port_wcount_).toIntValue()) : 1;
+
+	Value addrValue = state.getPort(PORT_ADDR);
+	boolean chipSelect = state.getPort(PORT_CS) != Value.FALSE;
+	boolean triggered = myState.setClock(state.getPort(PORT_CLK), StdAttr.TRIG_RISING);
+	boolean outputEnabled = state.getPort(PORT_OE) != Value.FALSE;
+
+	if (!chipSelect)
+	{
+	    myState.setCurrent(-1);
+	    for (int i = 0; i < wordCount; i++)
+	    {
+		state.setPort(PORT_DATA0 + i, Value.createUnknown(dataBits), DELAY);
+	    }
+	    return;
+	}
+
+	int addr = addrValue.toIntValue();
+	if (!addrValue.isFullyDefined() || addr < 0)
+	{
+	    return;
+	}
+
+	if (addr != myState.getCurrent())
+	{
+	    myState.setCurrent(addr);
+	    myState.scrollToShow(addr);
+	}
+
+	if (triggered && !outputEnabled)
+	{
+	    for (int i = 0; i < maxWordsFetched; i++)
+	    {
+		Value dataValue = state.getPort(PORT_DATA0 + i);
+		if (!dataValue.isUnknown())
+		{
+		    myState.getContents().set(addr + i, dataValue.toIntValue());
+  	        }
+	    }
+	}
+
+	if (outputEnabled)
+	{
+	    for (int i = 0; i < wordCount; i++)
+	    {
+		int val = myState.getContents().get(addr + i);
+		state.setPort(PORT_DATA0 + i, Value.createKnown(dataBits, val), DELAY);
+	    }
+	    for (int i = wordCount; i < maxWordsFetched; i++)
+	    {
+		state.setPort(PORT_DATA0 + i, Value.createUnknown(dataBits), DELAY);
+	    }
+	}
+	else
+	{
+	    for (int i = 0; i < maxWordsFetched; i++)
+	    {
+		state.setPort(PORT_DATA0 + i, Value.createUnknown(dataBits), DELAY);
+	    }
+	}
+    }
+
+    @Override
+    protected void configureNewInstance(Instance instance)
+    {
+	instance.addAttributeListener();
+	int maxWordsFetched = instance.getAttributeValue(ATTR_MAXWORDSFETCHED).intValue();
+	Port[] ps = new Port[PORT_DATA0 + maxWordsFetched + ((maxWordsFetched > 1) ? 1 : 0)];
+
+	//
+	// Component size.
+	//
+	int halfHeight = Math.max(40, maxWordsFetched * 10);
+	int halfSep    = Math.max(40 / maxWordsFetched, 10);
+
+	//
+	// Non-data ports.
+	//
+	ps[PORT_ADDR] = new Port(-160,  0, Port.INPUT, ATTR_ADDR);
+	ps[PORT_ADDR].setToolTip(new FixedGetter("Address: location accessed in memory"));
+
+	ps[PORT_CS]   = new Port( -110, halfHeight, Port.INPUT, 1);
+	ps[PORT_CS].setToolTip(new FixedGetter("Chip select: 0 disables component"));
+
+	ps[PORT_CLK] = new Port(-90, halfHeight, Port.INPUT, 1);
+	ps[PORT_CLK].setToolTip(new FixedGetter("Clock: memory value updates on rise from 0 to 1"));
+
+	ps[PORT_OE]  = new Port(-70, halfHeight, Port.INPUT, 1);
+	ps[PORT_OE].setToolTip(new FixedGetter("Load: if 1, load memory to output"));
+
+	//
+	// For the word count, the bit width is the ceiling of the log (base 2) of the maximum word count value.
+	//
+	int bits = 1;
+	if (maxWordsFetched > 1)
+	{
+	    port_wcount_ = PORT_DATA0 + maxWordsFetched;
+	    int x = maxWordsFetched;
+	    bits = 0;
+
+	    while (x > 0)
+	    {
+		x = x >>> 1;
+	bits++;
+	    }
+	    ps[port_wcount_] = new Port(-50, halfHeight, Port.INPUT, bits);
+	    ps[port_wcount_].setToolTip(new FixedGetter("Word Count: number of words to load/store from memory"));
+	}
+
+	//
+	// Data ports.
+	//
+	for (int i = 0; i < maxWordsFetched; i++)
+	{
+	    ps[PORT_DATA0 + i] = new Port(0, halfSep + 2 * halfSep * i - halfHeight, Port.INOUT, ATTR_DATA);
+	    ps[PORT_DATA0 + i].setToolTip(new FixedGetter("Data word " + i));
+	}
+
+	//
+	// Done.
+	//
+	instance.setPorts(ps);
+	instance.recomputeBounds();
+    }
+
+    @Override
+    public AttributeSet createAttributeSet()
+    {
+	return AttributeSets.fixedSet(ATTRIBUTES, ATTRIBUTE_DEFAULTS);
+    }
+
+    MemState getState(InstanceState state)
+    {
+	BitWidth addrBits = state.getAttributeValue(ATTR_ADDR);
+	BitWidth dataBits = state.getAttributeValue(ATTR_DATA);
+
+	RamState myState = (RamState) state.getData();
+	if (myState == null) {
+	    MemContents contents = MemContents.create(addrBits.getWidth(), dataBits.getWidth());
+	    Instance instance = state.getInstance();
+	    myState = new RamState(instance, contents, new MemListener(instance));
+	    state.setData(myState);
+	} else {
+	    myState.setRam(state.getInstance());
+	}
+	return myState;
+    }
+
+    MemState getState(Instance instance, CircuitState state)
+    {
+	BitWidth addrBits = instance.getAttributeValue(ATTR_ADDR);
+	BitWidth dataBits = instance.getAttributeValue(ATTR_DATA);
+
+	RamState myState = (RamState) instance.getData(state);
+	if (myState == null) {
+	    MemContents contents = MemContents.create(addrBits.getWidth(), dataBits.getWidth());
+	    myState = new RamState(instance, contents, new MemListener(instance));
+	    instance.setData(state, myState);
+	} else {
+	    myState.setRam(instance);
+	}
+	return myState;
+    }
+
+    HexFrame getHexFrame(Project proj, Instance instance, CircuitState circuitState)
+    {
+	RamState state = (RamState) getState(instance, circuitState);
+	return state.getHexFrame(proj);
+    }
+
+    //
+    // Copied from Mem.java.
+    //
+    static class MemListener implements HexModelListener
+    {
+	Instance instance;
+
+	MemListener(Instance instance) { this.instance = instance; }
+
+	@Override
+	public void metainfoChanged(HexModel source) { }
+
+	@Override
+	public void bytesChanged(HexModel source, long start, long numBytes, int[] values)
+	{
+	    instance.fireInvalidated();
+	}
+    }
+
+    //
+    // Copied from Ram.java (as it's private I could not reuse the class.
+    //
+    private static class RamState extends MemState implements AttributeListener
+    {
+	private Instance parent;
+	private final MemListener listener;
+	private HexFrame hexFrame = null;
+	private ClockState clockState;
+
+	RamState(Instance parent, MemContents contents, MemListener listener) {
+	    super(contents);
+	    this.parent = parent;
+	    this.listener = listener;
+	    this.clockState = new ClockState();
+	    if (parent != null) parent.getAttributeSet().addAttributeListener(this);
+	    contents.addHexModelListener(listener);
+	}
+
+	void setRam(Instance value) {
+	    if (parent == value) return;
+	    if (parent != null) parent.getAttributeSet().removeAttributeListener(this);
+	    parent = value;
+	    if (value != null) value.getAttributeSet().addAttributeListener(this);
+	}
+
+	@Override
+	public RamState clone() {
+	    RamState ret = (RamState) super.clone();
+	    ret.parent = null;
+	    ret.clockState = this.clockState.clone();
+	    ret.getContents().addHexModelListener(listener);
+	    return ret;
+	}
+
+	// Retrieves a HexFrame for editing within a separate window
+	public HexFrame getHexFrame(Project proj) {
+	    if (hexFrame == null) {
+		hexFrame = new HexFrame(proj, getContents());
+		hexFrame.addWindowListener(new WindowAdapter() {
+		    @Override
+		    public void windowClosed(WindowEvent e) {
+			hexFrame = null;
+		    }
+		});
+	    }
+	    return hexFrame;
+	}
+
+	//
+	// methods for accessing the write-enable data
+	//
+	public boolean setClock(Value newClock, Object trigger) {
+	    return clockState.updateClock(newClock, trigger);
+	}
+
+	@Override
+	public void attributeListChanged(AttributeEvent e) { }
+
+	@Override
+	public void attributeValueChanged(AttributeEvent e) {
+	    AttributeSet attrs = e.getSource();
+	    BitWidth addrBits = attrs.getValue(ATTR_ADDR);
+	    BitWidth dataBits = attrs.getValue(ATTR_DATA);
+	    getContents().setDimensions(addrBits.getWidth(), dataBits.getWidth());
+
+	}
+    }
+
+    public static class Logger extends InstanceLogger {
+	@Override
+	public Object[] getLogOptions(InstanceState state) {
+	    int addrBits = state.getAttributeValue(ATTR_ADDR).getWidth();
+	    if (addrBits >= logOptions.length) addrBits = logOptions.length - 1;
+	    synchronized(logOptions) {
+		Object[] ret = logOptions[addrBits];
+		if (ret == null) {
+		    ret = new Object[1 << addrBits];
+		    logOptions[addrBits] = ret;
+		    for (int i = 0; i < ret.length; i++) {
+			ret[i] = Integer.valueOf(i);
+		    }
+		}
+		return ret;
+	    }
+	}
+
+	@Override
+	public String getLogName(InstanceState state, Object option)
+	{
+	    if (option instanceof Integer)
+	    {
+		String disp = "RAM";
+		Location loc = state.getInstance().getLocation();
+		return disp + loc + "[" + option + "]";
+	    }
+	    return null;
+	}
+
+	@Override
+	public Value getLogValue(InstanceState state, Object option)
+	{
+	    if (option instanceof Integer) {
+		MemState s = (MemState) state.getData();
+		int addr = ((Integer) option).intValue();
+		return Value.createKnown(BitWidth.create(s.getDataBits()),
+			s.getContents().get(addr));
+	    }
+	    return Value.NIL;
+	}
+    }
+
+}
