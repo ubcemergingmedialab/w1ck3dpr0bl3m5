@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 114822095559945694}
   - component: {fileID: 114508989960006188}
   m_Layer: 0
-  m_Name: TransitionTo2
+  m_Name: TransitionTo5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,15 +174,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1564775473375230}
-  m_LocalRotation: {x: 0.018369304, y: 0.76858556, z: -0.022090983, w: 0.63910156}
-  m_LocalPosition: {x: -0.429, y: 0.025, z: 0.06}
+  m_LocalRotation: {x: -0.022010678, y: 0.6425223, z: -0.018469157, w: -0.7657281}
+  m_LocalPosition: {x: 0.485, y: 0.063, z: 0.149}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 4780624589279270}
   - {fileID: 4196260091682530}
   m_Father: {fileID: 4956712818354944}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 3.2930002, y: 280, z: 0}
 --- !u!4 &4394906563185050
 Transform:
   m_ObjectHideFlags: 1
@@ -627,7 +627,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4f1f2963b5f414e4ea822b2d29733a26, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -846,7 +846,7 @@ MonoBehaviour:
   theNarration:
     busyBehavior: 0
     singleAudio_MultiSub: 1
-    mainAudio: {fileID: 8300000, guid: 1d11d0ee010e446569ed60f1d3a19e6e, type: 3}
+    mainAudio: {fileID: 8300000, guid: 76c759e6571a77a49b2edffb8c5971c5, type: 3}
     phrases:
     - audio: {fileID: 8300000, guid: 1d11d0ee010e446569ed60f1d3a19e6e, type: 3}
       text: \nThe agriculture sector is in a state of distress which is severely affecting
@@ -881,7 +881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2eccc3bbd4ba4d15b97a08ac0c5a4fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1051478471309336, guid: 66fc2141f3ead43f3a649ff47540ca67, type: 2}
+  target: {fileID: 1833786457505888, guid: 62f50247f699d4b638da34ea23f48df0, type: 2}
   hide: {fileID: 0}
 --- !u!135 &135250948094672132
 SphereCollider:
