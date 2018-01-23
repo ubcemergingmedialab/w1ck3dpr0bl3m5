@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 114029251908821826}
   - component: {fileID: 114711534690365918}
   - component: {fileID: 114867573015064006}
+  - component: {fileID: 114743447322430986}
   m_Layer: 0
   m_Name: TransitionTo2
   m_TagString: Untagged
@@ -743,8 +744,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114867573015064006}
-          m_MethodName: Trigger
+        - m_Target: {fileID: 114029251908821826}
+          m_MethodName: doTransition
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -754,8 +755,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 114029251908821826}
-          m_MethodName: doTransition
+        - m_Target: {fileID: 114743447322430986}
+          m_MethodName: stopSubtitles
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -855,6 +856,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 898a66136c8534392b0f438a228efd94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114743447322430986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1442901609959126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97360c6105fc04dbfa63c8f90200e4a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114867573015064006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -870,14 +882,14 @@ MonoBehaviour:
   narrationList: {fileID: 0}
   theNarration:
     busyBehavior: 2
-    singleAudio_MultiSub: 0
+    singleAudio_MultiSub: 1
     mainAudio: {fileID: 0}
     phrases:
     - audio: {fileID: 0}
-      text: 
-      duration: 0.1
-      drawAudio: 1
-      lastCalculatedHeight: 90
+      text: ' '
+      duration: 0
+      drawAudio: 0
+      lastCalculatedHeight: 72
       move: 0
     LoopAudioForDuration: 0
     expanded: 1
