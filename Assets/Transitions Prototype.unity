@@ -113,6 +113,48 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &183306183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 183306185}
+  - component: {fileID: 183306184}
+  m_Layer: 0
+  m_Name: AudioFader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &183306184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183306183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f6c95ba5dce4864830ba5497094c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fade: 0
+  audioSpeed: 0.75
+--- !u!4 &183306185
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183306183}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.711594, y: 21.925896, z: 12.116581}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &216203833
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,49 +664,9 @@ Prefab:
       objectReference: {fileID: 9100000, guid: 1b35fc7720e1944afbd446e78d6faafe, type: 2}
     m_RemovedComponents:
     - {fileID: 95065278753172202, guid: 4f614368709de2544b2f74ff286c5150, type: 2}
+    - {fileID: 95981416233589340, guid: 4f614368709de2544b2f74ff286c5150, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4f614368709de2544b2f74ff286c5150, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1336789302
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1336789304}
-  - component: {fileID: 1336789303}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1336789303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1336789302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4f6c95ba5dce4864830ba5497094c62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSpeed: 0.6
---- !u!4 &1336789304
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1336789302}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1407.556, y: 10.207963, z: -3021.7126}
-  m_LocalScale: {x: 100, y: 100, z: 100}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1446582706
 Prefab:
   m_ObjectHideFlags: 0

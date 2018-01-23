@@ -727,7 +727,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1051478471309336, guid: 66fc2141f3ead43f3a649ff47540ca67, type: 2}
-  hide: {fileID: 0}
 --- !u!114 &114135541189657096
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -746,17 +745,6 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 114029251908821826}
           m_MethodName: doTransition
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 114743447322430986}
-          m_MethodName: stopSubtitles
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

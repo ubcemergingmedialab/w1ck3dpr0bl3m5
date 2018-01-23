@@ -725,7 +725,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1537127299716720, guid: 80695dc56b5f2497aaacece18974f035, type: 2}
-  hide: {fileID: 0}
 --- !u!114 &114135541189657096
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -857,7 +856,7 @@ MonoBehaviour:
   UseNarrationList: 0
   narrationList: {fileID: 0}
   theNarration:
-    busyBehavior: 0
+    busyBehavior: 2
     singleAudio_MultiSub: 1
     mainAudio: {fileID: 8300000, guid: ac97fa6950037444d9337df0ec4098bf, type: 3}
     phrases:

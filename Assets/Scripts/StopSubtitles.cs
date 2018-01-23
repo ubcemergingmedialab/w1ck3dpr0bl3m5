@@ -17,10 +17,15 @@ public class StopSubtitles : MonoBehaviour {
 
 	}
 
-	public void stopSubtitles(){
+	public static void stopSubtitles(){
 		SubtitleManager subMan = SubtitleManager.FindObjectOfType<SubtitleManager>();
-		NarrationManager narMan = NarrationManager.FindObjectOfType<NarrationManager>();
+
 		subMan.Stop();
+
+	}
+
+	public static void stopNarration() {
+		NarrationManager narMan = NarrationManager.FindObjectOfType<NarrationManager>();
 		narMan.GetComponent<AudioSource>().Stop();
 	}
 }

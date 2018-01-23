@@ -6,9 +6,8 @@ public class TransitionTo : MonoBehaviour {
 	public GameObject target;
 	public static bool TRANSITIONTO_TRANSITIONING;
 	Animator fader;
-	GameObject glass;
-
-
+	private float audioSpeed = 1;
+	AudioFade audiofade;
 	// Use this for initialization
 	void Start () {
 		if (target == null) {
@@ -16,8 +15,9 @@ public class TransitionTo : MonoBehaviour {
         }
 		TRANSITIONTO_TRANSITIONING = false; //This keeps the transitionTo from being run while already transitioning
 		fader = GameObject.Find("Fader").GetComponent<Animator>(); //The animator of the black rectangle that makes the fade
-        glass = GameObject.Find("Glass"); //Gets the glass, which is assumed to be the last object in the hierarchy
+		audiofade = GameObject.Find("AudioFader").GetComponent<AudioFade>();
     }
+
 
 
 	public void doTransition(){
@@ -25,28 +25,36 @@ public class TransitionTo : MonoBehaviour {
 			TRANSITIONTO_TRANSITIONING = true;
 
 			fader.SetTrigger("Fader In");
-			foreach (Animator a in (glass.GetComponentsInChildren<Animator>())) {
-				a.SetTrigger("Fader Out");
-			}
 			Invoke("createNewSphere", 2);
 			Invoke("destroySphere", 2);
 			Invoke("fadeOut", 2);
-			//hide.SetActive(false);
+			StopSubtitles.stopSubtitles();
+			audiofade.fade = true;
 		}
+
+		//AudioListener.volume = 0;
+		//StopSubtitles.stopNarration();
 	}
 
 	void fadeOut(){
 		fader.SetTrigger("Fader Out");
-		foreach (Animator a in (glass.GetComponentsInChildren<Animator>())) {
-			a.SetTrigger("Fader In");
-		}
 	}
 	void createNewSphere(){
 		GameObject nextPhotoSphere = (GameObject)Instantiate(target); //This var isn't used but not declaring it makes it not work
-		//hide.SetActive(true);
+		StopSubtitles.stopNarration();
+		audiofade.fade = false;
+		audiofade.unFade();
+
 	}
 
 	void destroySphere(){
 		Destroy (transform.parent.gameObject); 
 	}
+
+	/*void stopSubtitles(){
+		SubtitleManager subMan = SubtitleManager.FindObjectOfType<SubtitleManager>();
+		NarrationManager narMan = NarrationManager.FindObjectOfType<NarrationManager>();
+		subMan.Stop();
+		narMan.GetComponent<AudioSource>().Stop();
+	}*/
 }
