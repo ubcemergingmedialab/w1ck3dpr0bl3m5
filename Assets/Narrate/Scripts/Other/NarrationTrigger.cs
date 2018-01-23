@@ -46,6 +46,7 @@ namespace Narrate {
         }
 
         IEnumerator PlayNarration() {
+            Debug.Log("Playing narration");
             if (delayPlayingBy > 0)
                 yield return new WaitForSeconds(delayPlayingBy);
             //play from NarrationList
