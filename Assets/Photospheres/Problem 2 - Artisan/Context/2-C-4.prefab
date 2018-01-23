@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114552882511505002}
   - component: {fileID: 114452707239167288}
   m_Layer: 0
-  m_Name: TransitionTo3
+  m_Name: TransitionTo1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 114822095559945694}
   - component: {fileID: 114508989960006188}
   m_Layer: 0
-  m_Name: TransitionTo2
+  m_Name: TransitionToMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,15 +240,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1564775473375230}
-  m_LocalRotation: {x: 0, y: 0.9659258, z: 0, w: 0.2588191}
-  m_LocalPosition: {x: -0.369, y: 0.055, z: 0.342}
+  m_LocalRotation: {x: 0, y: -0.6427876, z: 0, w: 0.7660445}
+  m_LocalPosition: {x: 0.456, y: 0.142, z: -0.074}
   m_LocalScale: {x: 15.000004, y: 15, z: 15.000004}
   m_Children:
   - {fileID: 4780624589279270}
   - {fileID: 4196260091682530}
   m_Father: {fileID: 4956712818354944}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 150, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -80, z: 0}
 --- !u!4 &4394906563185050
 Transform:
   m_ObjectHideFlags: 1
@@ -294,15 +294,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1135430697195302}
-  m_LocalRotation: {x: 0, y: -0.5735764, z: 0, w: 0.8191521}
-  m_LocalPosition: {x: 0.374, y: 0.055, z: -0.246}
+  m_LocalRotation: {x: 0, y: 0.5735764, z: 0, w: 0.8191521}
+  m_LocalPosition: {x: -0.487, y: 0.12, z: -0.115}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 4650288445715536}
   - {fileID: 4797745069445802}
   m_Father: {fileID: 4956712818354944}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -70, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 70, z: 0}
 --- !u!4 &4650288445715536
 Transform:
   m_ObjectHideFlags: 1
@@ -790,9 +790,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0bc8416e699a74b97915f6c7ee75cb09, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0ccaddc87f3414853a0b6e2a7a849f65, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -870,9 +870,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4f1f2963b5f414e4ea822b2d29733a26, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2273069cd63c74e5c81ebc4e6576801b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1051,7 +1051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2eccc3bbd4ba4d15b97a08ac0c5a4fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1874643388864652, guid: 8ba3cc1f2135d4c2c8f82e64e1675ae8, type: 2}
+  target: {fileID: 1874643388864652, guid: cdbe924ebe06d4f0690917dc296f54d7, type: 2}
   hide: {fileID: 0}
 --- !u!114 &114822095559945694
 MonoBehaviour:
@@ -1064,7 +1064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2eccc3bbd4ba4d15b97a08ac0c5a4fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1874643388864652, guid: 399d8fbd0931c497293b01403f612cbd, type: 2}
+  target: {fileID: 1874643388864652, guid: cd677b1fc2be74ff78d6e1eda7cebada, type: 2}
   hide: {fileID: 0}
 --- !u!135 &135250948094672132
 SphereCollider:
