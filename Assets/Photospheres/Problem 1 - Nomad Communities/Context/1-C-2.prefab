@@ -678,7 +678,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1874643388864652, guid: c6c2775fe544c473688f2d072aaa1654, type: 2}
-  hide: {fileID: 0}
 --- !u!135 &135250948094672132
 SphereCollider:
   m_ObjectHideFlags: 1

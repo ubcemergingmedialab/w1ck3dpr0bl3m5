@@ -9,9 +9,13 @@ public class FancyTrigPlacement : MonoBehaviour {
 	private float x;
 	private float z;
 	private float radius;
+	private bool done;
 	// Use this for initialization
 	void Start () {
 		menu = GameObject.Find("Menu");
+		if (menu == null) {
+			menu = GameObject.Find("Menu(Clone)");
+		}
 		transformList = menu.GetComponentsInChildren<Transform>();
 		total = transformList.Length;
 		radius = 57.8f;
@@ -27,6 +31,6 @@ public class FancyTrigPlacement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 }
