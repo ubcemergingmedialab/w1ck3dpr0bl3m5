@@ -27,7 +27,7 @@ public class FancyTrigPlacement : MonoBehaviour {
 		// for whatever weird reason unity gets the parent when you call GetComponentsInChildren, so i starts at 1, and total is total-1 
 		for (int i = 1; i < total; i++) {
 			// -1 to flip direction
-			float theta = (float) (- 1 * (i + 2 * startProblem + 0.5) * (2 * Mathf.PI) / (total - 1) + Mathf.PI);
+			float theta = (float) (- 1 * (i - 2 * startProblem + 0.5) * (2 * Mathf.PI) / (total - 1) + Mathf.PI);
 			x = radius * Mathf.Cos(theta);
 			z = radius * Mathf.Sin(theta);
 			transformList[i].position = new Vector3(x, 0, z);
