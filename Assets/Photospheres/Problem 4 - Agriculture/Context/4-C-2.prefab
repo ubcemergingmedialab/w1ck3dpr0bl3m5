@@ -457,11 +457,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7c6fdfdc67c7e4853bcbb39dbbabc841, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c8fb501e60c3242049f240e69be991b0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -537,11 +537,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4f1f2963b5f414e4ea822b2d29733a26, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7c6fdfdc67c7e4853bcbb39dbbabc841, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -678,7 +678,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1833786457505888, guid: 546cd7953f077488fbbe82dc72c6e857, type: 2}
-  hide: {fileID: 0}
 --- !u!135 &135250948094672132
 SphereCollider:
   m_ObjectHideFlags: 1
