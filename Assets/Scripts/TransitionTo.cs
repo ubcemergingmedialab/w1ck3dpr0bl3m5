@@ -28,7 +28,7 @@ public class TransitionTo : MonoBehaviour {
 			Invoke("createNewSphere", 2);
 			Invoke("destroySphere", 2);
 			Invoke("fadeOut", 2);
-			StopSubtitles.stopSubtitles();
+			//StopSubtitles.stopSubtitles();
 			audiofade.fade = true;
 		}
 
@@ -41,7 +41,7 @@ public class TransitionTo : MonoBehaviour {
 	}
 	void createNewSphere(){
 		GameObject nextPhotoSphere = (GameObject)Instantiate(target); //This var isn't used but not declaring it makes it not work
-		StopSubtitles.stopNarration();
+		//StopSubtitles.stopNarration();
 		audiofade.fade = false;
 		audiofade.unFade();
 
