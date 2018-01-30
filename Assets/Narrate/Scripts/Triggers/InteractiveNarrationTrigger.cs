@@ -12,11 +12,13 @@ using UnityEditor;
 namespace Narrate {
     public class InteractiveNarrationTrigger : NarrationTrigger {
         public bool is2D = false;
+		public bool playOnCreation = false;
         public Transform triggeredBy;//the Transforms of GameObjects that can trigger this
         public float proximity; //Triggers when objects are within this distance
         private bool timeOut;
 
         private InteractionEventHandler handler;
+
         void Awake() {
             if (triggeredBy == null) {
                 Debug.LogWarning("InteractiveNarrationTrigger Warning: " + this.gameObject.name +
@@ -28,6 +30,7 @@ namespace Narrate {
         void Start() {
             handler = new InteractionEventHandler(CheckTrigger);
             NarrationManager.instance.InteractPressed += handler;
+
         }
 
         void OnEnable() {
