@@ -11,6 +11,22 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1874643388864652}
   m_IsPrefabParent: 1
+--- !u!1 &1066379043387600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4994098744797052}
+  - component: {fileID: 114668427125792166}
+  m_Layer: 0
+  m_Name: InstantNarration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1377942380347484
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +142,6 @@ GameObject:
   - component: {fileID: 135250948094672132}
   - component: {fileID: 23944890160553740}
   - component: {fileID: 95713675277230592}
-  - component: {fileID: 82631502336818280}
   m_Layer: 0
   m_Name: 1-C-2
   m_TagString: Untagged
@@ -228,8 +243,22 @@ Transform:
   m_Children:
   - {fileID: 4394906563185050}
   - {fileID: 4268287587367724}
+  - {fileID: 4994098744797052}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4994098744797052
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1066379043387600}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4956712818354944}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23226580132235622
 MeshRenderer:
@@ -528,86 +557,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!82 &82631502336818280
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1874643388864652}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ceeb347f7b7b24d83b191148c978f291, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!95 &95713675277230592
 Animator:
   serializedVersion: 3
@@ -666,6 +615,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 898a66136c8534392b0f438a228efd94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114668427125792166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1066379043387600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c65e7f97fa1546844a2448671e4d4116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseNarrationList: 0
+  narrationList: {fileID: 0}
+  theNarration:
+    busyBehavior: 0
+    singleAudio_MultiSub: 1
+    mainAudio: {fileID: 8300000, guid: ceeb347f7b7b24d83b191148c978f291, type: 3}
+    phrases:
+    - audio: {fileID: 0}
+      text: "SELCO Foundation had done the need assessment survey for the Shepherd
+        community to understand their livelihood, migration, living condition and
+        financial system. Issues specific with the nomadic culture: \u25CF Vulnerable
+        to changes in weather during migration \u25CF Health and Safety of herd \u25CF
+        Health and safety of children during migration \u25CF Tarpaulin Tent is used
+        as a shelter which doesn\u2019t provide much protection and can blow away
+        in the wind \u25CF Unavailability of Clean Water for drinking and daily chores
+        \u25CF Unavailability of dry fuel wood during monsoon \u25CF Lack of linkages
+        to bank and financial institutions for nomadic communities \u25CF Lack of
+        Energy access for use during night time \u25CF Lack of adequate Education
+        Possible areas for intervention \u25CF Clean cooking alternatives \u25CF Shelter/protection
+        for family members and herd \u25CF Water/hygiene \u25CF Light/energy \u25CF
+        Health facilities for family members and herd -19"
+      duration: 66.01
+      drawAudio: 0
+      lastCalculatedHeight: 72
+      move: 0
+    LoopAudioForDuration: 0
+    expanded: 1
+    lastCalculatedHeight: 196
+    useSmartSubs: 0
+  OnFailure: 0
+  OnSuccess: 0
+  ResetCooldown: 0
+  delayPlayingBy: 0
+  time: 0
 --- !u!114 &114822095559945694
 MonoBehaviour:
   m_ObjectHideFlags: 1

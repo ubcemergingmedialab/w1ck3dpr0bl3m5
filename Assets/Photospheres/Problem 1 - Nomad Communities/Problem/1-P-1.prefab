@@ -221,6 +221,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1994379726078330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4398166118004076}
+  - component: {fileID: 114546144690224650}
+  m_Layer: 0
+  m_Name: InstantNarration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4196260091682530
 Transform:
   m_ObjectHideFlags: 1
@@ -247,7 +263,7 @@ Transform:
   - {fileID: 4780624589279270}
   - {fileID: 4196260091682530}
   m_Father: {fileID: 4956712818354944}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 150, z: 0}
 --- !u!4 &4394906563185050
 Transform:
@@ -258,6 +274,19 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_Children: []
+  m_Father: {fileID: 4956712818354944}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4398166118004076
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1994379726078330}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4956712818354944}
   m_RootOrder: 0
@@ -301,7 +330,7 @@ Transform:
   - {fileID: 4650288445715536}
   - {fileID: 4797745069445802}
   m_Father: {fileID: 4956712818354944}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -70, z: 0}
 --- !u!4 &4650288445715536
 Transform:
@@ -382,6 +411,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
+  - {fileID: 4398166118004076}
   - {fileID: 4394906563185050}
   - {fileID: 4620550471874942}
   - {fileID: 4268287587367724}
@@ -1040,6 +1070,49 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &114546144690224650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1994379726078330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c65e7f97fa1546844a2448671e4d4116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseNarrationList: 0
+  narrationList: {fileID: 0}
+  theNarration:
+    busyBehavior: 0
+    singleAudio_MultiSub: 1
+    mainAudio: {fileID: 8300000, guid: a1f012bbefde54986a1bf995bc639eb6, type: 3}
+    phrases:
+    - audio: {fileID: 0}
+      text: "The major problem faced by the shepherds is the high mortality rate in
+        sheep rearing and a lack of adequate land for grazing. There are marketing
+        and financial setbacks too.\_ Shepherds have a low standard of living, where
+        the employment and income is unstable, the financial linkages and access is
+        even less. One of the reasons for this is the lack of cooperative societies
+        to whom the shepherds can sell. There is an absence of a transparent arrangement
+        or medium through which they can sell the wool. Therefore, they have to sell
+        the extracted wool to local weavers at a lower price.\_Bailhongal, a taluk
+        in Belgavi district, Karnataka where the local shepherding community, the
+        Kurubas, have to deal with land shortage and poor access to various medical
+        facilities."
+      duration: 49.37
+      drawAudio: 0
+      lastCalculatedHeight: 72
+      move: 0
+    LoopAudioForDuration: 0
+    expanded: 1
+    lastCalculatedHeight: 196
+    useSmartSubs: 0
+  OnFailure: 0
+  OnSuccess: 0
+  ResetCooldown: 0
+  delayPlayingBy: 0
+  time: 0
 --- !u!114 &114552882511505002
 MonoBehaviour:
   m_ObjectHideFlags: 1
