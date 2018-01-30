@@ -88,7 +88,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -234,7 +233,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -383,6 +381,22 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22452388, guid: 2ac2e515cfc05514a83b8ef083430da7, type: 2}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22402204, guid: 2ac2e515cfc05514a83b8ef083430da7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 8.825916
+      objectReference: {fileID: 0}
+    - target: {fileID: 22402204, guid: 2ac2e515cfc05514a83b8ef083430da7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 456.15662
+      objectReference: {fileID: 0}
+    - target: {fileID: 22402204, guid: 2ac2e515cfc05514a83b8ef083430da7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 215.42676
+      objectReference: {fileID: 0}
+    - target: {fileID: 180212, guid: 2ac2e515cfc05514a83b8ef083430da7, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -722,6 +736,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114841329335678878, guid: cd677b1fc2be74ff78d6e1eda7cebada,
+        type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1874643388864652, guid: cdbe924ebe06d4f0690917dc296f54d7,
+        type: 2}
+    - target: {fileID: 114768400813474576, guid: cd677b1fc2be74ff78d6e1eda7cebada,
+        type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1874643388864652, guid: c49034c9b7d51434490fefdaf9e4f981,
+        type: 2}
+    - target: {fileID: 114727576519122710, guid: cd677b1fc2be74ff78d6e1eda7cebada,
+        type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1874643388864652, guid: 51f41be54ccb64ababd95ff1ad50d6b2,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd677b1fc2be74ff78d6e1eda7cebada, type: 2}
   m_IsPrefabParent: 0
