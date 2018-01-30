@@ -544,12 +544,12 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1051478471309336}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2815ce91042a748b3bf37d29a48c5f63, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 075565d50590d46a29aea658e35efa95, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -627,9 +627,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2815ce91042a748b3bf37d29a48c5f63, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 075565d50590d46a29aea658e35efa95, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -918,7 +918,7 @@ MonoBehaviour:
       move: 0
     LoopAudioForDuration: 0
     expanded: 1
-    lastCalculatedHeight: 196
+    lastCalculatedHeight: 106
     useSmartSubs: 0
   OnFailure: 0
   OnSuccess: 0
