@@ -336,7 +336,7 @@ MonoBehaviour:
   scrollRect: {fileID: 11427112}
   fontSizeModifier: 27.8
   fontSizeRange: {x: 9, y: 50}
-  timePadding: 3
+  timePadding: 1
   typing: 0
   defaultDelayBetweenLetters: 0.6
 --- !u!114 &11429822
@@ -553,9 +553,9 @@ Canvas:
   m_GameObject: {fileID: 180212}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 39.12
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -599,7 +599,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.03429985, y: 0.2729988}
+  m_AnchoredPosition: {x: -0.03429985, y: 0.27294922}
   m_SizeDelta: {x: 0.20000076, y: 80}
   m_Pivot: {x: 0.5, y: 0.99999994}
 --- !u!224 &22428626
@@ -658,8 +658,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.080000006, y: 0.041}
   m_AnchorMax: {x: 0.915, y: 0.23214287}
-  m_AnchoredPosition: {x: 2.1275482, y: 0.5100403}
-  m_SizeDelta: {x: -1, y: -1.0201}
+  m_AnchoredPosition: {x: 0, y: 196.5}
+  m_SizeDelta: {x: -200, y: 33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22472458
 RectTransform:

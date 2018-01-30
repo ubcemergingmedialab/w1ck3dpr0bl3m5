@@ -815,7 +815,7 @@ MonoBehaviour:
   UseNarrationList: 0
   narrationList: {fileID: 0}
   theNarration:
-    busyBehavior: 0
+    busyBehavior: 2
     singleAudio_MultiSub: 1
     mainAudio: {fileID: 8300000, guid: db9ccf5edcbedff4a9f22f4cd9d56852, type: 3}
     phrases:
@@ -832,7 +832,7 @@ MonoBehaviour:
       move: 0
     LoopAudioForDuration: 0
     expanded: 1
-    lastCalculatedHeight: 196
+    lastCalculatedHeight: 250
     useSmartSubs: 0
   OnFailure: 0
   OnSuccess: 0
@@ -866,7 +866,7 @@ MonoBehaviour:
   UseNarrationList: 0
   narrationList: {fileID: 0}
   theNarration:
-    busyBehavior: 0
+    busyBehavior: 2
     singleAudio_MultiSub: 1
     mainAudio: {fileID: 8300000, guid: aebf91e0b927b7d4a8d88943dba9d17d, type: 3}
     phrases:
