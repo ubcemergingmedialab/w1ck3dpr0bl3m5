@@ -97,6 +97,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1399937232373164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4947275129765546}
+  - component: {fileID: 114505241702828602}
+  m_Layer: 0
+  m_Name: InstantNarration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1735604533524184
 GameObject:
   m_ObjectHideFlags: 1
@@ -126,7 +142,6 @@ GameObject:
   - component: {fileID: 135250948094672132}
   - component: {fileID: 23944890160553740}
   - component: {fileID: 95713675277230592}
-  - component: {fileID: 82631502336818280}
   m_Layer: 0
   m_Name: 2-C-2
   m_TagString: Untagged
@@ -216,6 +231,19 @@ Transform:
   m_Father: {fileID: 4650288445715536}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4947275129765546
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1399937232373164}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_Children: []
+  m_Father: {fileID: 4956712818354944}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4956712818354944
 Transform:
   m_ObjectHideFlags: 1
@@ -228,6 +256,7 @@ Transform:
   m_Children:
   - {fileID: 4394906563185050}
   - {fileID: 4620550471874942}
+  - {fileID: 4947275129765546}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -528,86 +557,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!82 &82631502336818280
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1874643388864652}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9a3f89c4c98134e258a7004dee546842, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!95 &95713675277230592
 Animator:
   serializedVersion: 3
@@ -636,6 +585,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 898a66136c8534392b0f438a228efd94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114505241702828602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1399937232373164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c65e7f97fa1546844a2448671e4d4116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseNarrationList: 0
+  narrationList: {fileID: 0}
+  theNarration:
+    busyBehavior: 0
+    singleAudio_MultiSub: 1
+    mainAudio: {fileID: 8300000, guid: 5221b083e879f4565895661fd1b65ba4, type: 3}
+    phrases:
+    - audio: {fileID: 0}
+      text: "I have learned from my grandfather and father. Our family is doing pottery
+        since generations; I started pottery around 25-30 years ago. If not pottery
+        I would be doing work of construction labour. We collect clay within 1 km
+        radius of village. We use bamboo load carrier or cycle to bring the clay to
+        the work space. Process of making the artforms There are three type of clay
+        required for making the pots. \uF0B7 Black Clay (Khoyia Mati) \uF0B7 Sand
+        Clay (Bali Mati) \uF0B7 Khanti Bali Mati The clays are mixed in proportion
+        and are kept for drying and then it is filtered to remove the grains and stone
+        in it. By adding appropriate amount of water pots are made for 3 days continuously
+        and kept for drying in sun. Once the pots are dry to a certain extent they
+        are tapped to bring them in shape and are again in sun for drying. After the
+        drying the pots are heated in the fire. It is done at the community level
+        and pots from other potters are also kept in this process. The heating process
+        is done by keeping wood logs at the base, pots are placed on it and it is
+        covered straw/hay. The top layer is covered with clay to pack the whole thing
+        together and then fire is lit."
+      duration: 111.07
+      drawAudio: 0
+      lastCalculatedHeight: 72
+      move: 0
+    LoopAudioForDuration: 0
+    expanded: 1
+    lastCalculatedHeight: 196
+    useSmartSubs: 0
+  OnFailure: 0
+  OnSuccess: 0
+  ResetCooldown: 0
+  delayPlayingBy: 0
+  time: 0
 --- !u!114 &114532603569764710
 MonoBehaviour:
   m_ObjectHideFlags: 1
