@@ -926,7 +926,7 @@ MonoBehaviour:
     mainAudio: {fileID: 8300000, guid: 0bc8416e699a74b97915f6c7ee75cb09, type: 3}
     phrases:
     - audio: {fileID: 0}
-      text: Nomadic people are the ones who migrate from one place to another for
+      text: \nNomadic people are the ones who migrate from one place to another for
         their livelihood. Their migratory pattern depends on the seasons. The shepherd
         community members migrate for the grazing of their sheep.
       duration: 16.54

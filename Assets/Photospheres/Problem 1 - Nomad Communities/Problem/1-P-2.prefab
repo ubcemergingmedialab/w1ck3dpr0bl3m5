@@ -593,7 +593,7 @@ MonoBehaviour:
     mainAudio: {fileID: 8300000, guid: 572cd02f951d64909953f79208ed2233, type: 3}
     phrases:
     - audio: {fileID: 0}
-      text: "The Kuruba come under the Denotified Tribes and Nomadic tribes, they
+      text: "\\nThe Kuruba come under the Denotified Tribes and Nomadic tribes, they
         do not have rights to their own land, many people deprived of voting rights.
         So many groups of Nomadic and De-notified Tribes have to scout around urban
         areas to search for their means of livelihood. Children in the family are

@@ -1089,8 +1089,8 @@ MonoBehaviour:
     mainAudio: {fileID: 8300000, guid: a1f012bbefde54986a1bf995bc639eb6, type: 3}
     phrases:
     - audio: {fileID: 0}
-      text: "The major problem faced by the shepherds is the high mortality rate in
-        sheep rearing and a lack of adequate land for grazing. There are marketing
+      text: "\\nThe major problem faced by the shepherds is the high mortality rate
+        in sheep rearing and a lack of adequate land for grazing. There are marketing
         and financial setbacks too.\_ Shepherds have a low standard of living, where
         the employment and income is unstable, the financial linkages and access is
         even less. One of the reasons for this is the lack of cooperative societies

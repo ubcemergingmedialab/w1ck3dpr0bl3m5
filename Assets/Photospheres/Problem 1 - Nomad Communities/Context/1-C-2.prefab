@@ -634,7 +634,7 @@ MonoBehaviour:
     mainAudio: {fileID: 8300000, guid: ceeb347f7b7b24d83b191148c978f291, type: 3}
     phrases:
     - audio: {fileID: 0}
-      text: "SELCO Foundation had done the need assessment survey for the Shepherd
+      text: "\\nSELCO Foundation had done the need assessment survey for the Shepherd
         community to understand their livelihood, migration, living condition and
         financial system. Issues specific with the nomadic culture: \u25CF Vulnerable
         to changes in weather during migration \u25CF Health and Safety of herd \u25CF

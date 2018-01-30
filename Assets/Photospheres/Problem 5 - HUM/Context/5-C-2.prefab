@@ -81,6 +81,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1349744433030876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4975292827848018}
+  - component: {fileID: 114179493823378098}
+  m_Layer: 0
+  m_Name: InstantNarration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1377942380347484
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +142,6 @@ GameObject:
   - component: {fileID: 135250948094672132}
   - component: {fileID: 23944890160553740}
   - component: {fileID: 95713675277230592}
-  - component: {fileID: 82631502336818280}
   m_Layer: 0
   m_Name: 5-C-2
   m_TagString: Untagged
@@ -145,7 +160,7 @@ Transform:
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 4956712818354944}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4620550471874942
 Transform:
@@ -160,7 +175,7 @@ Transform:
   - {fileID: 4650288445715536}
   - {fileID: 4797745069445802}
   m_Father: {fileID: 4956712818354944}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 130, z: 0}
 --- !u!4 &4650288445715536
 Transform:
@@ -226,9 +241,23 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
+  - {fileID: 4975292827848018}
   - {fileID: 4394906563185050}
   - {fileID: 4620550471874942}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4975292827848018
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1349744433030876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4956712818354944}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23116461217771278
@@ -528,86 +557,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!82 &82631502336818280
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1874643388864652}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d6f454477e4b74924a55b21db62d5de8, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!95 &95713675277230592
 Animator:
   serializedVersion: 3
@@ -625,6 +574,57 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114179493823378098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1349744433030876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c65e7f97fa1546844a2448671e4d4116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseNarrationList: 0
+  narrationList: {fileID: 0}
+  theNarration:
+    busyBehavior: 0
+    singleAudio_MultiSub: 1
+    mainAudio: {fileID: 8300000, guid: d6f454477e4b74924a55b21db62d5de8, type: 3}
+    phrases:
+    - audio: {fileID: 0}
+      text: "1st Interviewee Name: Kashimbe (Female) Husband\u2019s name: Mehboob
+        Son\u2019s name: Ibrahim (22 years) Migration details: We have migrated from
+        Lingsur Block, Raichur district 10 years ago. We don\u2019t own a land in
+        native place, it is owned and taken care by by my in-laws. They cultivate
+        bajra (pearl millet) on the land. We visit our native village once in 6 months.
+        Income: Husband and son works as construction labour as a daily basis. It
+        depends on the contractor to provide them work. They each get Rs 400/day.
+        Son goes to work on rented cycle payment for which is to be given weekly.
+        Expenses: Rent of the house is Rs 300/month. We have to pay Rs 2/container,
+        we use 5-6 vessels for storing water, we have refill the containers twice
+        a week. Approximately we pay Rs 40/week on water. For cooking we buy fuelwood
+        at the rate Rs 80/10kg, 10-20kg of fuelwood lasts for a week. Husband has
+        addiction of Alcohol and beedi and spends Rs 100/day on it. Saving: We have
+        bank account in State Bank of India at our native village and send some money
+        monthly for our family. Savings is done for emergencies, festivals and travel.
+        Amenities: We buy kerosene from government shop or private shop at Rs. 70/litre
+        for kerosene lamp. We have to keep it burning whole night as we have a rat
+        problem. We also have a solar light given by our neighbour who has his dinner
+        at our house."
+      duration: 321
+      drawAudio: 0
+      lastCalculatedHeight: 72
+      move: 0
+    LoopAudioForDuration: 0
+    expanded: 1
+    lastCalculatedHeight: 196
+    useSmartSubs: 0
+  OnFailure: 0
+  OnSuccess: 0
+  ResetCooldown: 0
+  delayPlayingBy: 0
+  time: 0
 --- !u!114 &114452707239167288
 MonoBehaviour:
   m_ObjectHideFlags: 1

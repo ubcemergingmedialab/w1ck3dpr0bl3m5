@@ -593,8 +593,8 @@ MonoBehaviour:
     mainAudio: {fileID: 8300000, guid: 9a3f89c4c98134e258a7004dee546842, type: 3}
     phrases:
     - audio: {fileID: 0}
-      text: Market availability and linkages We sell the pots in the surrounding area
-        at the rate of 50Rs, 30 Rs 20 Rs or 10 Rs depending on the size and artwork
+      text: \nMarket availability and linkages We sell the pots in the surrounding
+        area at the rate of 50Rs, 30 Rs 20 Rs or 10 Rs depending on the size and artwork
         done. Sometimes we get grains in exchange of the pots. Nearby villages that
         we visit to sell the pots are Palang padar, nakrundi, Ranpur, Kerpai, Kaniguma,
         Gopalpur all these villages are within 15- 20km radius.

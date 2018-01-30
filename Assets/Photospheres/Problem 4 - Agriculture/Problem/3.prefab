@@ -756,13 +756,14 @@ MonoBehaviour:
       move: 0
     LoopAudioForDuration: 0
     expanded: 1
-    lastCalculatedHeight: 106
+    lastCalculatedHeight: 196
     useSmartSubs: 0
   OnFailure: 0
   OnSuccess: 0
   ResetCooldown: 0
   delayPlayingBy: 0
   is2D: 0
+  playOnCreation: 0
   triggeredBy: {fileID: 0}
   proximity: 0
 --- !u!114 &114745219636876940

@@ -646,7 +646,7 @@ MonoBehaviour:
     mainAudio: {fileID: 8300000, guid: a282022639b094048964fa285b7d710f, type: 3}
     phrases:
     - audio: {fileID: 0}
-      text: Family, education, since when the art is being practiced There are in
+      text: \nFamily, education, since when the art is being practiced There are in
         total 6 members in the family, 1 daughter, 2 sons, 1 daughter in law, wife
         and me. The school is in the village itself. The younger son goes to school
         and is in 7 th class. There is no water availability in the village due to

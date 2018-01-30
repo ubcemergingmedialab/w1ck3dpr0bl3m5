@@ -11,6 +11,22 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1874643388864652}
   m_IsPrefabParent: 1
+--- !u!1 &1015025435630226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4657872795025902}
+  - component: {fileID: 114935774546223434}
+  m_Layer: 0
+  m_Name: InstantNarration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1018686772207790
 GameObject:
   m_ObjectHideFlags: 1
@@ -145,7 +161,7 @@ Transform:
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 4956712818354944}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4620550471874942
 Transform:
@@ -160,7 +176,7 @@ Transform:
   - {fileID: 4650288445715536}
   - {fileID: 4797745069445802}
   m_Father: {fileID: 4956712818354944}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -70, z: 0}
 --- !u!4 &4650288445715536
 Transform:
@@ -175,6 +191,19 @@ Transform:
   - {fileID: 4913779871002330}
   - {fileID: 4786147749943196}
   m_Father: {fileID: 4620550471874942}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4657872795025902
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015025435630226}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4956712818354944}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4786147749943196
@@ -226,6 +255,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
+  - {fileID: 4657872795025902}
   - {fileID: 4394906563185050}
   - {fileID: 4620550471874942}
   m_Father: {fileID: 0}
@@ -678,6 +708,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1874643388864652, guid: f6e40ac8423af45d8a399d80fc2d8c6c, type: 2}
+--- !u!114 &114935774546223434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015025435630226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c65e7f97fa1546844a2448671e4d4116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseNarrationList: 0
+  narrationList: {fileID: 0}
+  theNarration:
+    busyBehavior: 0
+    singleAudio_MultiSub: 1
+    mainAudio: {fileID: 8300000, guid: 3a5d75ea193584495844a480a4280373, type: 3}
+    phrases:
+    - audio: {fileID: 0}
+      text: "2nd Interviewee name: Shantabai Husband\u2019s name: Babu Daughter: Jayshree
+        Migration details: We have migrated here in Bangalore from Gulbarga district
+        around 7 years ago. Daughter was living here so came here to live with her.
+        We migrated here because there are very few jobs in our native village, also
+        the payment is very low. We visit our native village once a year. Income:
+        Husband works as a construction labour and gets Rs 400/month. I work as a
+        domestic worker and work in 7 houses around the neighbourhood. I get in total
+        of Rs. 8500/month for the work. Expenses: We buy food from local shops and
+        spend around Rs. 8000/month on it. Husband\u2019s health is not good and we
+        have to visit hospital once in a month. Generally we visit private hospital
+        and it costs Rs. 500/visit. Doctor is asking to get the blood check up done.
+        Savings: We don\u2019t have bank account. Amenities: Local shops are nearby
+        where we buy food. Government and private hospitals are around 1 km, private
+        hospital is preferred over government hospital. We have all the ID cards but
+        at our native village."
+      duration: 77
+      drawAudio: 0
+      lastCalculatedHeight: 72
+      move: 0
+    LoopAudioForDuration: 0
+    expanded: 1
+    lastCalculatedHeight: 196
+    useSmartSubs: 0
+  OnFailure: 0
+  OnSuccess: 0
+  ResetCooldown: 0
+  delayPlayingBy: 0
+  time: 0
 --- !u!135 &135250948094672132
 SphereCollider:
   m_ObjectHideFlags: 1
