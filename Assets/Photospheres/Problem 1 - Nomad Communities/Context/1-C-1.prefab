@@ -790,11 +790,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0bc8416e699a74b97915f6c7ee75cb09, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0a218fa632df34c44b9a7e0a4fe11848, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -870,9 +870,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4f1f2963b5f414e4ea822b2d29733a26, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0bc8416e699a74b97915f6c7ee75cb09, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1052,7 +1052,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1874643388864652, guid: 8ba3cc1f2135d4c2c8f82e64e1675ae8, type: 2}
-  hide: {fileID: 0}
 --- !u!114 &114822095559945694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1065,7 +1064,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1874643388864652, guid: 399d8fbd0931c497293b01403f612cbd, type: 2}
-  hide: {fileID: 0}
 --- !u!135 &135250948094672132
 SphereCollider:
   m_ObjectHideFlags: 1
