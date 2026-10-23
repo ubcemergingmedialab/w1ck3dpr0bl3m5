@@ -15,7 +15,7 @@
 // Only invoke custom build processor when building for Android or iOS.
 #if UNITY_ANDROID || UNITY_IOS
 using UnityEngine;
-using UnityEngine.VR;
+using UnityEngine.XR;
 using UnityEditor;
 using UnityEditor.Build;
 using System.Linq;
@@ -70,12 +70,12 @@ class GvrBuildProcessor : IPreprocessBuild {
 
   // 'Player Settings > Virtual Reality SDKs' includes 'Daydream'?
   private bool IsDaydreamSDKIncluded() {
-    return VRSettings.supportedDevices.Contains(GvrSettings.VR_SDK_DAYDREAM);
+    return XRSettings.supportedDevices.Contains(GvrSettings.VR_SDK_DAYDREAM);
   }
 
   // 'Player Settings > Virtual Reality SDKs' includes 'Cardboard'?
   private bool IsCardboardSDKIncluded() {
-    return VRSettings.supportedDevices.Contains(GvrSettings.VR_SDK_CARDBOARD);
+    return XRSettings.supportedDevices.Contains(GvrSettings.VR_SDK_CARDBOARD);
   }
 }
 #endif  // UNITY_ANDROID || UNITY_IOS

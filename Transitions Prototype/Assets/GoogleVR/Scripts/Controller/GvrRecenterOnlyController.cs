@@ -13,7 +13,7 @@
 // limitations under the License.
 
 using UnityEngine;
-using UnityEngine.VR;
+using UnityEngine.XR;
 
 // Recenter only the controller.
 // Usage: Set GvrControllerPointer > Controller as the pointer field, and
@@ -40,7 +40,7 @@ public class GvrRecenterOnlyController : MonoBehaviour {
     }
     // Daydream is loaded only on deivce, not in editor.
 #if UNITY_ANDROID && !UNITY_EDITOR
-        if (VRSettings.loadedDeviceName != "daydream")
+        if (XRSettings.loadedDeviceName != "daydream")
         {
             return;
         }
