@@ -13,7 +13,7 @@
 // limitations under the License.
 
 using UnityEngine;
-using UnityEngine.VR;
+using UnityEngine.XR;
 using System.Collections;
 
 /// Standard implementation for a mathematical model to make the virtual controller approximate the
@@ -393,7 +393,7 @@ public class GvrArmModel : GvrBaseArmModel{
 #if UNITY_EDITOR
     return GvrEditorEmulator.HeadRotation;
 #else
-    return InputTracking.GetLocalRotation(VRNode.Head);
+    return InputTracking.GetLocalRotation(XRNode.Head);
 #endif // UNITY_EDITOR
   }
 
@@ -401,7 +401,7 @@ public class GvrArmModel : GvrBaseArmModel{
 #if UNITY_EDITOR
     return GvrEditorEmulator.HeadPosition;
 #else
-    return InputTracking.GetLocalPosition(VRNode.Head);
+    return InputTracking.GetLocalPosition(XRNode.Head);
 #endif // UNITY_EDITOR
   }
 

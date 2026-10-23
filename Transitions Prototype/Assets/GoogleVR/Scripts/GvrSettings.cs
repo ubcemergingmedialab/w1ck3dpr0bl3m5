@@ -18,7 +18,7 @@
 /// </summary>
 
 using UnityEngine;
-using UnityEngine.VR;
+using UnityEngine.XR;
 using System;
 using System.Runtime.InteropServices;
 #if UNITY_EDITOR
@@ -26,10 +26,10 @@ using UnityEditor;
 #endif  // UNITY_EDITOR
 
 public static class GvrSettings {
-  /// Name of Daydream GVR SDK, as returned by `VRSettings.loadedDeviceName`.
+  /// Name of Daydream GVR SDK, as returned by `XRSettings.loadedDeviceName`.
   public const string VR_SDK_DAYDREAM = "daydream";
 
-  /// Name of Cardboard GVR SDK, as returned by `VRSettings.loadedDeviceName` and supportedDevices.
+  /// Name of Cardboard GVR SDK, as returned by `XRSettings.loadedDeviceName` and supportedDevices.
   public const string VR_SDK_CARDBOARD = "cardboard";
 
   private const string METHOD_GET_WINDOW = "getWindow";
@@ -152,7 +152,7 @@ public static class GvrSettings {
 #endif  // UNITY_ANDROID && !UNITY_EDITOR
   }
 
-  /// Wraps call to `VRDevice.GetNativePtr()` and logs error if a supported GVR SDK is not active or
+  /// Wraps call to `XRDevice.GetNativePtr()` and logs error if a supported GVR SDK is not active or
   /// if the returned native pointer is `IntPtr.Zero`.
   public static IntPtr GetValidGvrNativePtrOrLogError() {
     if (!UnityEngine.XR.XRSettings.enabled) {
